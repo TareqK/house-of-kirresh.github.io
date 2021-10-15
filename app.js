@@ -49,7 +49,8 @@ export function start() {
                 greatGrandfatherName: '',
                 phoneNumber: '',
                 underageChildren: '',
-                yearOfBirth: '',   
+                yearOfBirth: '',
+                placeOfResidence: '',
                 notes: '',
 
                 saveMember() {
@@ -61,20 +62,23 @@ export function start() {
                         yearOfBirth: this.yearOfBirth,
                         phoneNumber: this.phoneNumber,
                         underageChildren: this.underageChildren.split("\n"),
-                        notes: this.notes
+                        notes: this.notes,
+                        placeOfResidence: this.placeOfResidence
+
 
                     }
                     setDoc(doc(db, "family-members", `${this.phoneNumber}`), person);
                     this.firstName = ''
                     this.fatherName = ''
                     this.grandfatherName = ''
-                    this.greatGrandfatherName=  ''
-                    this.phoneNumber= ''
-                    this.underageChildren= ''
-                    this.yearOfBirth= ''
+                    this.greatGrandfatherName = ''
+                    this.phoneNumber = ''
+                    this.underageChildren = ''
+                    this.yearOfBirth = ''
                     this.notes = ''
+                    this.placeOfResidence = ''
                 },
-             
+
             }).mount('#add-family-member-form')
         })
         .catch((error) => {
